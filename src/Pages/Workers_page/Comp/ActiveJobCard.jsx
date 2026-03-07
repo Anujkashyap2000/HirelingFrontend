@@ -1,5 +1,5 @@
 import React from 'react';
-import { WorkerMap } from '../../../Components/workerMap'; // Adjust path if needed
+import { WorkerMap } from '../../../Components/WorkerMap'; // Adjust path if needed
 
 const ActiveJobCard = ({ job, workerRole }) => {
   return (
