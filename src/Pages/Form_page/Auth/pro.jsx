@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Pro.css"; 
+import "./pro.css"; 
 import logo from "../../../assets/logo.png";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
