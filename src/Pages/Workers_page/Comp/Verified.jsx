@@ -1,5 +1,4 @@
 import React from 'react';
-import { WorkerMap } from '../../../Components/workerMap'; // Adjust path if needed
 
 const Verified = ({ job, workerRole }) => {
   return (
