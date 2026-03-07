@@ -1,0 +1,290 @@
+/* src/Components/LandingPage/LandingPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --primary: #f97316;
+  --primary-hover: #ea580c;
+  --bg-light: #f9fafb;
+  --text-main: #111827;
+  --text-muted: #6b7280;
+  --white: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-light);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  position: relative;
+  height: 80vh;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  /* Fallback background, overridden by animation */
+  background-color: #1f2937; 
+  animation: heroSlideshow 20s infinite linear;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(17, 24, 39, 0.6); /* Dark overlay for text readability */
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 800px;
+  padding: 0 20px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin-bottom: 40px;
+  color: #e5e7eb;
+}
+
+/* Animated Gradient Text */
+.text-gradient {
+  background: linear-gradient(to right, #f97316, #fbbf24);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* --- Search Bar --- */
+.search-container {
+  background: var(--white);
+  padding: 10px;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.search-input-group {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 0 15px;
+  border-right: 1px solid #e5e7eb;
+}
+
+.search-input-group:last-of-type {
+  border-right: none;
+}
+
+.search-input-group input,
+.search-input-group select {
+  border: none;
+  outline: none;
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  background: transparent;
+}
+
+.btn-search {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 40px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-search:hover {
+  background: var(--primary-hover);
+}
+
+/* --- Quick Categories --- */
+.categories-section {
+  padding: 60px 20px;
+  background: var(--white);
+  text-align: center;
+}
+
+.categories-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.categories-scroll::-webkit-scrollbar {
+  display: none; /* Chrome/Safari */
+}
+
+.category-card {
+  min-width: 140px;
+  background: var(--bg-light);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: var(--text-main);
+}
+
+.category-card:hover {
+  border-color: var(--primary);
+  background: #fff7ed;
+  transform: translateY(-5px);
+  color: var(--primary);
+}
+
+.category-icon {
+  color: var(--text-muted);
+  transition: color 0.2s;
+}
+
+.category-card:hover .category-icon {
+  color: var(--primary);
+}
+
+/* --- Results Grid --- */
+.results-section {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.worker-profile-card {
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  border: 1px solid #e5e7eb;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.worker-profile-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.worker-img {
+  width: 100%;
+  height: 200px;
+  object-fit:contain;
+  bottom: 0;
+}
+
+.worker-info {
+  padding: 20px;
+}
+
+.worker-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 4px 0;
+}
+
+.worker-profession {
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin: 0 0 12px 0;
+}
+
+/* --- Feature Sections (Template Cards) --- */
+.features-section {
+  padding: 80px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.feature-row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-text h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.feature-image {
+  flex: 1;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .search-container { flex-direction: column; border-radius: 16px; padding: 16px; gap: 10px; }
+  .search-input-group { border-right: none; border-bottom: 1px solid #e5e7eb; width: 100%; padding: 10px 0; }
+  .btn-search { width: 100%; }
+  .feature-row, .feature-row:nth-child(even) { flex-direction: column; gap: 30px; text-align: center; }
+  .hero-title { font-size: 2.5rem; }
+}
+
+/* Background Animation */
+@keyframes heroSlideshow {
+  0% { background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80"); }
+  33% { background-image: url("https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&q=80"); }
+  66% { background-image: url("https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&q=80"); }
+  100% { background-image: url("https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80"); }
+}

@@ -1,0 +1,224 @@
+@keyframes formFadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: #0f171e; 
+    color: #ffffff; 
+    padding: 40px 20px;
+}
+
+.auth-logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.auth-logo img {
+    height: 160px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.auth-logo img:hover {
+    transform: scale(1.05);
+}
+
+.auth-form {
+    background-color: #1a242f; 
+    border-radius: 12px;
+    padding: 40px 35px;
+    width: 100%;
+    max-width: 550px; 
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); 
+    animation: formFadeUp 0.6s ease-out forwards;
+    border: 1px solid #2c3e50; 
+}
+
+.auth-form h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 0.5px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.form-group input:not([type="checkbox"]),
+.form-group textarea {
+    width: 100%;
+    padding: 14px 16px;
+    border: 1px solid #2c3e50; 
+    border-radius: 6px; 
+    background-color: rgb(192, 192, 192); 
+    color: #000000; 
+    font-size: 16px;
+    box-sizing: border-box; 
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #555555; 
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00a8e1;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 168, 225, 0.2); 
+}
+
+.address-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px; 
+    background: rgba(0, 0, 0, 0.15); 
+    padding: 20px 20px 0 20px;
+    border-radius: 8px;
+    margin-bottom: 22px;
+    border: 1px dashed #2c3e50;
+}
+
+
+.address-grid .form-group:last-child {
+    grid-column: 1 / -1; 
+}
+
+.checkboxGroup {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding: 10px 0;
+}
+
+.checkboxGroup label {
+    font-size: 14.5px;
+    color: #ffffff;
+    cursor: pointer;
+    margin: 0;
+}
+
+.checkboxGroup input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #f97316; 
+}
+
+.location-toggle {
+    background-color: rgba(249, 115, 22, 0.1); 
+    padding: 12px 15px;
+    border-radius: 6px;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.hint {
+    font-size: 12px;
+    color: #7f8c8d; 
+    margin-top: 6px;
+    font-style: italic;
+}
+
+
+.auth-button {
+    width: 100%;
+    padding: 16px;
+    background-color: #f97316; 
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+
+.auth-button:hover {
+    background-color: #ea580c; 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(234, 88, 12, 0.3);
+}
+
+.auth-button:active {
+    transform: translateY(0);
+}
+
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+    font-size: 15px;
+    color: #7f8c8d; 
+    padding-top: 20px;
+    border-top: 1px solid #2c3e50;
+}
+
+.auth-footer a {
+    color: #f97316; 
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 6px;
+    transition: color 0.2s;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+    color: #ea580c;
+}
+
+
+@media (max-width: 600px) {
+    .auth-container {
+        padding: 20px 15px;
+    }
+    
+    .auth-form {
+        padding: 30px 20px;
+    }
+
+    .address-grid {
+        grid-template-columns: 1fr; 
+        padding: 15px 15px 0 15px;
+    }
+
+    .auth-form h1 {
+        font-size: 24px;
+    }
+}
