@@ -1,20 +1,16 @@
-:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  
-}
-
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
   padding: 0;
+  /* Remove display: flex and place-items: center */
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f4f4f4; /* Or your preferred background */
+  overflow-x: hidden; /* Prevents horizontal scrolling "wiggle" on mobile */
+  line-height: 1.5;
 }
 
-
-
+#root {
+  display: flex;
+  flex-direction: column; /* Stacks Header, Sidebar, and Content */
+  min-height: 100vh;
+}

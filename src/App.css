@@ -1,15 +1,33 @@
+/* Apply this globally to prevent padding from adding to width */
+* {
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
-  padding: 2rem;
+  /* Reduced padding for mobile */
+  padding: 1rem; 
   text-align: center;
   display: flex;
+  /* Stack elements vertically by default (Mobile First) */
+  flex-direction: column; 
   align-items: center;
 }
 
-.main{
+.main {
   display: flex;
-  align-content: center;
+  /* Allow items to wrap to the next line if they don't fit */
+  flex-wrap: wrap; 
+  justify-content: center;
   background-color: black;
+  width: 100%;
 }
 
+/* Desktop Layout */
+@media (min-width: 768px) {
+  #root {
+    flex-direction: row; /* Side-by-side for tablets/desktops */
+    padding: 2rem;
+  }
+}
