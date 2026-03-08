@@ -19,10 +19,10 @@
     
  /* } */
   .navbar-logo img{
-    height: 25%;
-    width: 25%;
+    height: 110px;
+    width: 130px;
     padding: 0;
-    margin: 0;
+    margin-left: 0;
   }
   
   .navbar-links {

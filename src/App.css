@@ -1,11 +1,11 @@
-/* Apply this globally to prevent padding from adding to width */
+Apply this globally to prevent padding from adding to width
 * {
   box-sizing: border-box;
 }
 
 #root {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 ;
   /* Reduced padding for mobile */
   padding: 1rem; 
   text-align: center;
