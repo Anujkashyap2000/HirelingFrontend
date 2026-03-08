@@ -68,11 +68,14 @@ const LandingPage = (place) => {
         pincode: pincodeArray,
         profession: formData.profession,
       });
+const data = response.data.data || [];
 
-      setWorkers(response.data.data || []);
-      
-      // Scroll to results
-      document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+if (data.length === 0) {
+  setErrors("No workers found in this area.");
+} else {
+  setWorkers(data);
+  document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+}
     } catch (err) {
       setErrors(err.response?.data?.error || "No workers found in this area.");
     } finally {
@@ -179,7 +182,17 @@ const LandingPage = (place) => {
               {loading ? "Searching..." : "Find Pros"}
             </button>
           </form>
-          {errors && <p style={{ color: "#fca5a5", marginTop: "15px", fontWeight: "600" }}>{errors}</p>}
+          {errors && (
+  <p style={{ 
+    color: "#ff4d4d", 
+    marginTop: "15px", 
+    fontWeight: "600",
+    position: "relative", 
+    zIndex: "10" 
+  }}>
+    {errors}
+  </p>
+)}
         </div>
       </section>
 
