@@ -30,14 +30,6 @@ const LandingPage = (place) => {
 
   const userData = useSelector((state) => state?.auth?.userData);
 
-  
-
-   
-  
-
-
- 
-
 
 
   const handleChange = (e) => {
@@ -103,6 +95,10 @@ if (data.length === 0) {
 
       setWorkers(data);
       document.getElementById('results-section').scrollIntoView({ behavior: 'smooth' });
+
+if (data.length === 0) {
+  setErrors(`No ${profession}s available right now.`);
+}
     } catch (err) {
       setErrors(err.response?.data?.error || `No ${profession}s available right now.`);
     } finally {
