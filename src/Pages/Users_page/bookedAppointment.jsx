@@ -6,7 +6,7 @@ import axios from "axios";
 import "./userBooking.css";
 
 
-import { LayoutGrid, ThumbsUp, ShoppingBag, User as UserIcon, RefreshCw , Clock} from "lucide-react";
+import { LayoutGrid, ThumbsUp, ShoppingBag, User as UserIcon, RefreshCw , Clock, Menu, X} from "lucide-react";
 
 
 import RequestedUserCard from "./comp/RequestedUserCard";
@@ -21,6 +21,7 @@ const UserBookings = () => {
   const customer = useSelector((state) => state?.auth?.userData);
 
   const [activeTab, setActiveTab] = useState('requested');
+   const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
   const [requestedAppointments, setRequestedAppointments] = useState([]);
   const [acceptedAppointments, setAcceptedAppointments] = useState([]);
   const [bookedOrders, setBookedOrders] = useState([]);
@@ -48,6 +49,7 @@ const UserBookings = () => {
     ]);
     setIsRefreshing(false);
   };
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const fetchRequestedAppointments = async (id) => {
     try {
@@ -120,25 +122,28 @@ const UserBookings = () => {
 
   return (
     <div className="dashboard-container">
+      <button className="mobile-toggle" onClick={toggleSidebar}>
+        {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
       {/* Sidebar Navigation */}
-      <aside className="sidebar">
+      <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         <div className="brand">
           <div className="brand-icon"><UserIcon size={24} /></div>
           MY BOOKINGS
         </div>
         
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div className={`nav-item ${activeTab === 'requested' ? 'active' : ''}`} onClick={() => setActiveTab('requested')}>
+          <div className={`nav-item ${activeTab === 'requested' ? 'active' : ''}`} onClick={() => { setActiveTab('requested'); setIsSidebarOpen(false); }}>
             <LayoutGrid size={20} /> Requested ({requestedAppointments.length})
           </div>
-          <div className={`nav-item ${activeTab === 'accepted' ? 'active' : ''}`} onClick={() => setActiveTab('accepted')}>
+          <div className={`nav-item ${activeTab === 'accepted' ? 'active' : ''}`} onClick={() => { setActiveTab('accepted'); setIsSidebarOpen(false); }}>
             <ThumbsUp size={20} /> Accepted ({acceptedAppointments.length})
           </div>
-          <div className={`nav-item ${activeTab === 'orders' ? 'active' : ''}`} onClick={() => setActiveTab('orders')}>
+          <div className={`nav-item ${activeTab === 'orders' ? 'active' : ''}`} onClick={() => { setActiveTab('orders'); setIsSidebarOpen(false); }}>
             <ShoppingBag size={20} /> Active Orders ({bookedOrders.length})
           </div>
 
-          <div className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`} onClick={() => setActiveTab('completed')}>
+          <div className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`} onClick={() => { setActiveTab('completed'); setIsSidebarOpen(false); }}>
             <Clock size={20} /> History ({completed.length})
           </div>
         </nav>
@@ -154,7 +159,7 @@ const UserBookings = () => {
           </button>
         </div>
       </aside>
-
+    {isSidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
       {/* Main Content Area */}
       <main className="main-content">
         

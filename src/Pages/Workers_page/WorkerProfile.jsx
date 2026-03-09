@@ -7,7 +7,7 @@ import socket from '../../socket'; // Adjust path
 import './WorkerProfile.css';
 
 // Import Icons
-import { LayoutGrid, Briefcase, Clock, CheckCircle, Navigation, CreditCard, ShieldCheck,ThumbsUp,ClockFading } from 'lucide-react';
+import { LayoutGrid, Briefcase, Clock, CheckCircle, Navigation, CreditCard, ShieldCheck,ThumbsUp,ClockFading, Menu, X } from 'lucide-react';
 
 // Import Sub-Components
 import DashboardHeader from './Comp/DashboardHeader';
@@ -24,6 +24,7 @@ const WorkerProfile = () => {
   
   // -- State Management --
   const [activeTab, setActiveTab] = useState('requests');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false); 
   const [status, setStatus] = useState(workerData?.status);
   const [requests, setRequests] = useState([]);
   const [activeJobs, setActiveJobs] = useState([]);
@@ -44,6 +45,8 @@ const WorkerProfile = () => {
     });
     return () => socket.off("new_booking_notification");
   }, [workerData]);
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
 
   const fetchData = async () => {
     try {
@@ -103,32 +106,34 @@ const WorkerProfile = () => {
 
   return (
     <div className="dashboard-container">
-      
-      <aside className="sidebar">
+      <button className="mobile-toggle" onClick={toggleSidebar}>
+        {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+      <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
         
         <nav style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-          <div className={`nav-item ${activeTab === 'requests' ? 'active' : ''}`} onClick={() => setActiveTab('requests')}>
+          <div className={`nav-item ${activeTab === 'requests' ? 'active' : ''}`} onClick={() => { setActiveTab('requests'); setIsSidebarOpen(false); }}>
             <LayoutGrid size={20} /> Requests ({requests.length})
           </div>
-          <div className={`nav-item ${activeTab === 'accepted' ? 'active' : ''}`} onClick={() => setActiveTab('accepted')}>
+          <div className={`nav-item ${activeTab === 'accepted' ? 'active' : ''}`} onClick={() => { setActiveTab('accepted'); setIsSidebarOpen(false); }}>
             <ThumbsUp size={20} /> Accepted Appointment ({accepted.length})
           </div>
           
-          <div className={`nav-item ${activeTab === 'active' ? 'active' : ''}`} onClick={() => setActiveTab('active')}>
+          <div className={`nav-item ${activeTab === 'active' ? 'active' : ''}`} onClick={() => { setActiveTab('active'); setIsSidebarOpen(false); }}>
             <Clock size={20} /> Active Jobs ({activeJobs.length})
           </div>
           
-          <div className={`nav-item ${activeTab === 'verified' ? 'active' : ''}`} onClick={() => setActiveTab('verified')}>
+          <div className={`nav-item ${activeTab === 'verified' ? 'active' : ''}`}onClick={() => { setActiveTab('verified'); setIsSidebarOpen(false); }}>
             <ClockFading size={20} /> Verified ({verified.length})
             
           </div>
-          <div className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`} onClick={() => setActiveTab('completed')}>
+          <div className={`nav-item ${activeTab === 'completed' ? 'active' : ''}`} onClick={() => { setActiveTab('completed'); setIsSidebarOpen(false); }}>
             <CheckCircle size={20} /> History ({completed.length})
           </div>
           
         </nav>
       </aside>
-
+      {isSidebarOpen && <div className="sidebar-overlay" onClick={toggleSidebar}></div>}
       <main className="main-content">
         <DashboardHeader 
           workerData={workerData} 
