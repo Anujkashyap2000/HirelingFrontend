@@ -383,15 +383,12 @@ h2, h3 {
   }
 
   .main-content {
-    margin-left: -300px;
+    margin-left: -250px;
     width: 100vh;
     padding: 80px 20px 20px 20px; /* Space for the hamburger button */
   }
   .sidebar-overlay.show {
     display: block;
   }
-  .dashboard-container{
-    position: relative;
-    top: 8px;
-  }
+  
 }
