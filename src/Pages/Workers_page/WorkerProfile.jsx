@@ -188,7 +188,7 @@ const WorkerProfile = () => {
 
         {activeTab === 'verified' && (
           <>
-            <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '24px', marginTop: '40px' }}>
+            <div  className='verify'>
               <div className="verify-box">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '15px', color: '#1e40af' }}>
                   <ShieldCheck size={28} />

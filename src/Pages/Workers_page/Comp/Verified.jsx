@@ -8,7 +8,7 @@ const Verified = ({ job, workerRole }) => {
           <h3 className="card-title">Order #{job.orderId}</h3>
           <span style={{ background: '#fff7ed', color: '#f97316', padding: '2px 8px', borderRadius: '4px', fontSize: '0.8rem', fontWeight: 'bold' }}>
             {job.orderStatus}
-          </span>
+          </span> 
         </div>
         
         <p style={{ margin: '5px 0', fontSize: '0.9rem' }}>

@@ -10,6 +10,48 @@
   --border: #e5e7eb;
 }
 
+.mobile-toggle {
+  display: none; /* Hidden on desktop */
+  position: static;
+  top: 138px;
+  left: 2px;
+  z-index: 1001;
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  height: 40px;
+}
+.side{
+    display: flex;
+    flex-direction: column;
+  }
+.sidebar {
+  width: 270px;
+  height: 100vh;
+  background: var(--white);
+  border-right: 1px solid var(--border);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  position: static;
+  top: 136px;
+  transition: transform 0.3s ease-in-out; /* Smooth slide effect */
+  z-index: 1000;
+}
+.sidebar-overlay {
+  display: none;
+  position: static;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 999;
+}
 body { font-family: 'Inter', sans-serif; background: var(--bg-light); margin: 0; }
 
 .dashboard-container { display: flex; min-height: 100%; }
@@ -52,8 +94,63 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-light); margin: 0;
 
 .verify-box { background: var(--white); padding: 24px; border-radius: 16px; border-left: 5px solid #3b82f6; margin-top: 32px; }
 .verify-input { padding: 12px; border: 1px solid #d1d5db; border-radius: 8px; flex: 1; font-size: 1rem; letter-spacing: 2px; }
+.verify{
 
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+   gap: 24px;
+    margin-top: 40px
+}
 
 .payout-widget { background: #fff7ed; border: 1px solid #ffedd5; padding: 24px; border-radius: 16px; text-align: center; }
 .payout-amount { font-size: 2rem; font-weight: 800; color: #9a3412; margin: 8px 0; }
 
+@media (max-width: 1024px) {
+  .mobile-toggle {
+    display: block; /* Show hamburger on mobile */
+  }
+  
+  
+
+  .sidebar {
+    position: static; /* Fix to screen */
+    left: 0;
+    transform: translateX(-120%); /* Slide out of view */
+    transition: transform 0.3s ease-in-out;
+    height: 100vh;
+    z-index: 1000;
+    
+    /* Remove sticky constraints */
+    margin: 0;
+  }
+
+  .sidebar.open {
+    transform: translateX(-12%); /* Slide into view */
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
+  }
+
+  .sidebar-overlay {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+  }
+
+  .main-content {
+    margin-left: -20px;
+    width: 100vh;
+    padding: 80px 20px 20px 20px; /* Space for the hamburger button */
+  }
+  .sidebar-overlay.show {
+    display: block;
+  }
+  .verify{
+    display: flex;
+    flex-direction: column;
+  }
+  
+}
