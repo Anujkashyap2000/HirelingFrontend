@@ -1,7 +1,7 @@
-.user-bookings-container {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-}
+.dashboard-container{
+    position: relative;
+    top: 8px;
+  }
 
 h2, h3 {
     color: #333;
@@ -10,8 +10,8 @@ h2, h3 {
 
 .mobile-toggle {
   display: none; /* Hidden on desktop */
-  position: relative;
-  top: 8px;
+  position: static;
+  top: 138px;
   left: 2px;
   z-index: 1001;
   background: var(--primary);
@@ -23,6 +23,10 @@ h2, h3 {
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   height: 40px;
 }
+.side{
+    display: flex;
+    flex-direction: column;
+  }
 .sidebar {
   width: 270px;
   height: 100vh;
@@ -31,14 +35,14 @@ h2, h3 {
   padding: 24px;
   display: flex;
   flex-direction: column;
-  position: sticky;
+  position: static;
   top: 136px;
   transition: transform 0.3s ease-in-out; /* Smooth slide effect */
   z-index: 1000;
 }
 .sidebar-overlay {
   display: none;
-  position: fixed;
+  position: static;
   top: 0;
   left: 0;
   right: 0;
@@ -347,24 +351,47 @@ h2, h3 {
   .mobile-toggle {
     display: block; /* Show hamburger on mobile */
   }
+  
+  
 
   .sidebar {
-    position: fixed; /* Fix to screen */
+    position: static; /* Fix to screen */
     left: 0;
-    transform: translateX(-100%); /* Slide out of view */
+    transform: translateX(-120%); /* Slide out of view */
+    transition: transform 0.3s ease-in-out;
+    height: 100vh;
+    z-index: 1000;
+    
+    /* Remove sticky constraints */
+    margin: 0;
   }
 
   .sidebar.open {
-    transform: translateX(0); /* Slide into view */
+    transform: translateX(-12%); /* Slide into view */
+    box-shadow: 5px 0 15px rgba(0,0,0,0.3);
   }
 
   .sidebar-overlay {
-    display: block; /* Show overlay when sidebar is open */
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
   }
 
   .main-content {
-    margin-left: 0;
-    width: 100%;
+    margin-left: -300px;
+    width: 100vh;
     padding: 80px 20px 20px 20px; /* Space for the hamburger button */
+  }
+  .sidebar-overlay.show {
+    display: block;
+  }
+  .dashboard-container{
+    position: relative;
+    top: 8px;
   }
 }

@@ -127,6 +127,7 @@ const UserBookings = () => {
       </button>
       {/* Sidebar Navigation */}
       <aside className={`sidebar ${isSidebarOpen ? 'open' : ''}`}>
+        <div className="side">
         <div className="brand">
           <div className="brand-icon"><UserIcon size={24} /></div>
           MY BOOKINGS
@@ -147,7 +148,7 @@ const UserBookings = () => {
             <Clock size={20} /> History ({completed.length})
           </div>
         </nav>
-
+      </div>
         <div style={{ marginTop: 'auto' }}>
           <button 
             className="btn btn-outline" 

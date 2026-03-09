@@ -14,44 +14,6 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-light); margin: 0;
 
 .dashboard-container { display: flex; min-height: 100%; }
 .main-content { margin-left: 20px; padding: 32px; width: calc(100% - 260px); }
-.mobile-toggle {
-  display: none; /* Hidden on desktop */
-  position: relative;
-  top: 8px;
-  left: 2px;
-  z-index: 1001;
-  background: var(--primary);
-  color: white;
-  border: none;
-  padding: 8px;
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  height: 40px;
-}
-.sidebar {
-  width: 270px;
-  height: 100vh;
-  background: var(--white);
-  border-right: 1px solid var(--border);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  position: sticky;
-  top: 136px;
-  transition: transform 0.3s ease-in-out; /* Smooth slide effect */
-  z-index: 1000;
-}
-.sidebar-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 999;
-}
 .brand { display: flex; gap: 12px; align-items: center; font-weight: 800; font-size: 1.25rem; color: var(--text-main); margin-bottom: 40px; }
 .brand-icon { background: var(--primary); color: white; padding: 8px; border-radius: 8px; }
 
@@ -95,29 +57,3 @@ body { font-family: 'Inter', sans-serif; background: var(--bg-light); margin: 0;
 .payout-widget { background: #fff7ed; border: 1px solid #ffedd5; padding: 24px; border-radius: 16px; text-align: center; }
 .payout-amount { font-size: 2rem; font-weight: 800; color: #9a3412; margin: 8px 0; }
 
-/* --- Responsive Media Query --- */
-@media (max-width: 1024px) {
-  .mobile-toggle {
-    display: block; /* Show hamburger on mobile */
-  }
-
-  .sidebar {
-    position: fixed; /* Fix to screen */
-    left: 0;
-    transform: translateX(-100%); /* Slide out of view */
-  }
-
-  .sidebar.open {
-    transform: translateX(0); /* Slide into view */
-  }
-
-  .sidebar-overlay {
-    display: block; /* Show overlay when sidebar is open */
-  }
-
-  .main-content {
-    margin-left: 0;
-    width: 100%;
-    padding: 80px 20px 20px 20px; /* Space for the hamburger button */
-  }
-}

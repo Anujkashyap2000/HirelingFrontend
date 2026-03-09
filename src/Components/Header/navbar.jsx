@@ -50,6 +50,7 @@ function Navbar() {
   return (
     <div id="header">
       <nav className="navbar">
+        
         <figure className="navbar-logo">
           <img src={logo} alt="Logo" id="logo" />
         </figure>
@@ -83,9 +84,10 @@ function Navbar() {
             </Fragment>
           )}
         </div>
+        
+        
       </nav>
-
-      <div className="list">
+          <div className="list">
         <ul className="navbar-links">
           <li>
             <Link to="/">Home</Link>
@@ -96,6 +98,7 @@ function Navbar() {
           </li>
         </ul>
       </div>
+      
     </div>
   );
 }
