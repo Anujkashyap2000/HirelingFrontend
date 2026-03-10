@@ -37,10 +37,10 @@ function Footer() {
         <a href=""><p><EmailIcon /> &nbsp; anuj2025kashyap@gmail.com</p></a>
         <br />
         <div className="icon-group">
-          <a href=""><GitHubIcon /></a>
-          <a href=""><XIcon /></a>
-          <a href=""><InstagramIcon /></a>
-          <a href=""><LinkedInIcon /></a>
+          <a href="https://github.com/Anujkashyap2000/"><GitHubIcon /></a>
+          <a href="https://x.com/anujkashyap1143"><XIcon /></a>
+          <a href="https://www.instagram.com/anujkashyap11/"><InstagramIcon /></a>
+          <a href="https://www.linkedin.com/in/anuj-kumar-901890232/"><LinkedInIcon /></a>
         </div>
       </div>
     </footer>
