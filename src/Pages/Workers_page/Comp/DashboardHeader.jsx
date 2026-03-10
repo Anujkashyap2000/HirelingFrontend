@@ -2,7 +2,7 @@ import React from 'react';
 import { Wrench, MapPin } from 'lucide-react';
 
 const DashboardHeader = ({ workerData, status, onToggleStatus, onUpdateProfile }) => {
-  console.log(workerData)
+  
 
  
   return (

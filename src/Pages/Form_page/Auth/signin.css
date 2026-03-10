@@ -39,8 +39,8 @@
     background-color: #1a242f; 
     border-radius: 12px;
     padding: 40px 35px;
-    width: 100%;
-    max-width: 550px; 
+    width: 90%;
+    max-width: 560px; 
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); 
     animation: formFadeUp 0.6s ease-out forwards;
     border: 1px solid #2c3e50; 

@@ -7,7 +7,7 @@ Apply this globally to prevent padding from adding to width
   width: 100%;
   margin: 0 ;
   /* Reduced padding for mobile */
-  padding: 1rem; 
+  padding: 0; 
   text-align: center;
   display: flex;
   /* Stack elements vertically by default (Mobile First) */
@@ -28,6 +28,6 @@ Apply this globally to prevent padding from adding to width
 @media (min-width: 768px) {
   #root {
     flex-direction: row; /* Side-by-side for tablets/desktops */
-    padding: 2rem;
+    padding: 0%;
   }
 }

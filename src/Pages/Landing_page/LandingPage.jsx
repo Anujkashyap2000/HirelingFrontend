@@ -88,7 +88,7 @@ if (data.length === 0) {
         pincode:  [place.place.pincode],
         profession: profession,
       });
-      console.log(userData);
+    
       
       const data = response.data?.data || [];
       

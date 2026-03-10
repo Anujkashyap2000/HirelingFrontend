@@ -211,6 +211,7 @@ console.log("Redux",user1);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     try {
  
@@ -224,7 +225,7 @@ console.log("Redux",user1);
     
 const { city, pincode, state } = finalFormData.address;
 
-console.log("FInal");
+
 
     setLoading(true);
     
@@ -259,7 +260,7 @@ console.log("FInal");
   
 
 
-    const response = await ProjectService.requestAppointment(formData)
+    const response = await ProjectService.requestAppointment(finalFormData)
       console.log(response);
       toast.success("Appointment request sent!");
       navigate("/userprofile");
@@ -560,8 +561,18 @@ console.log("FInal");
               />
             </div>
 
-            <button type="submit" className="auth-button">
-              Send Request
+            <button 
+              type="submit" 
+              className="auth-button" 
+              disabled={loading} // Disable button while loading
+              style={{ opacity: loading ? 0.7 : 1, cursor: loading ? 'not-allowed' : 'pointer' }}
+            >
+              {loading ? (
+                // Simple text loader. Replace with a spinner component if you have one.
+                <span className="loading-text">Sending Request...</span>
+              ) : (
+                "Send Request"
+              )}
             </button>
           </form>
         </div>

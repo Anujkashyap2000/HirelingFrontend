@@ -36,7 +36,8 @@ const RequestedUserCard = ({ app }) => {
       marginBottom: '20px',
       display: 'flex',
       flexDirection: 'column',
-      width:"50%"
+      width:"100%",
+      maxWidth:"600px"
     },
     img: {
       width: '100%',
